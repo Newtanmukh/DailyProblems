@@ -14,12 +14,13 @@ class Solution {
         Double c = Double.parseDouble(fraction2[0]);
         Double d = Double.parseDouble(fraction2[1]);
         
-        double res1=(a/b);
-        double res2=(c/d);
+        Double res1=(a/b);
+        Double res2=(c/d);
         
         
-        if(res1==res2)
+        if(res1.equals(res2))
             return "equal";
+            
         else if(res1>res2)
             return  fraction1[0]+ "/" + fraction1[1];
         

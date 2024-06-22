@@ -1,0 +1,23 @@
+class Solution {
+    long ExtractNumber(String s) {
+           String[] words = s.split(" ", -1);
+        long output = -1;
+        
+        for(String word : words){
+            boolean isNumber = true;
+            
+            for(char c : word.toCharArray()){
+                if(c-'0'<0 || c-'0'>=9 || !Character.isDigit(c)){
+                    isNumber = false;
+                    break;
+                }
+            }
+            
+            if(isNumber==true && !word.isEmpty()){
+                output = Long.valueOf(word) > output ? Long.valueOf(word) : output;
+            }
+        }
+        
+        return output;
+    }
+}
