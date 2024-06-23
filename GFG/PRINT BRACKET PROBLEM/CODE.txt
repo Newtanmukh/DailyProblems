@@ -1,0 +1,24 @@
+class Solution {
+    ArrayList<Integer> bracketNumbers(String s) {
+        Integer openBrackets = 0;
+        
+         Deque<Integer> deque = new ArrayDeque<>();
+        
+        ArrayList<Integer> list = new ArrayList<>();
+        
+        for(char c:s.toCharArray()){
+            if(c=='('){
+                openBrackets++;
+                list.add(openBrackets);
+                deque.addFirst(openBrackets);
+            }else if(c==')'){
+                list.add(deque.peekFirst());
+                deque.removeFirst();
+            }else{
+                continue;
+            }
+        }
+        
+        return list;
+    }
+};
