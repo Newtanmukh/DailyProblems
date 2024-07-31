@@ -1,0 +1,19 @@
+class Solution {
+    public int minimumDeletions(String s) {
+        int countB=0, cost=0;
+
+        for(int i=0; i<s.length(); i++){
+            Character c = s.charAt(i);
+
+            if(c=='a' && countB > 0){
+                cost = cost + 1; //basically we need to delete one b before, so adding one to the cost
+                countB--; //delete the B before this a. if countB ==0 then it means no b before this a, (basically even if there were b's in the string, we have deleted them to account for some a before.)
+            }else if(c=='b'){
+                countB++;
+            }
+        }
+
+        return cost;
+
+    }
+}
